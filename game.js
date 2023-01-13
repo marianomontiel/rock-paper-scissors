@@ -6,8 +6,8 @@
 
 var computerChoice;
 var humanChoice;
-var humanScore;
-var computerScore;
+var humanScore = 0;
+var computerScore = 0;
 var turn = Math.floor(Math.random() * 2) + 1;
 
 
