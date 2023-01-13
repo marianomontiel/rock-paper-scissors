@@ -8,15 +8,11 @@ var computerChoice;
 var humanChoice;
 var humanScore;
 var computerScore;
+var turn = Math.floor(Math.random() * 2) + 1;
 
 
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3) + 1;
-  if (computerChoice === 1) {
-    computerChoice = "Rock";
-  } else if (computerChoice === 2) {
-    computerChoice = "Paper"
-  } else { computerChoice = "Scissors" }
   console.log(computerChoice);
 }
 
@@ -30,37 +26,39 @@ function getHumanChoice() {
   console.log(humanChoice);
 }
 
-function getPlayerFirstTurn() {
-  let turn = Math.floor(Math.random() * 2) + 1;
-  if (turn === 1) {
-    getHumanChoice();
-    getComputerChoice();
-  } else {
-    getComputerChoice();
-    getHumanChoice();
-  }
+function row() {
+    for (let i = 1; i <= 3; i++) {
+        if (turn === 1) {
+            getHumanChoice();
+            getComputerChoice();
+          } else {
+            getComputerChoice();
+            getHumanChoice();
+          }
+    }
+    whoWins();
+    alert ("Human = "+ humanScore + "Computer = " + computerScore + ".");
 }
+
 
 /* Three possible scenarios:
 1) tie; 2) rock crushes scissors; 3) paper covers rock; 4) scissors cut paper */
 function whoWins () {
     if (humanChoice == computerChoice) {
-      row ()
+      row ();
     } 
-    else if (humanChoice == 3 && computerChoice == 2 ||        computerChoice == 3 && humanChoice == 2) {
+    else if (humanChoice == 3 && computerChoice == 2 || computerChoice == 3 && humanChoice == 2) {
       if (humanChoice > computerChoice) {
         humanScore = +1;} else {computerScore = +1;}
       } 
-    else if (humanChoice == 1 && computerChoice == 3 ||        computerChoice == 3 && humanChoice == 1) {
+    else if (humanChoice == 1 && computerChoice == 3 || computerChoice == 3 && humanChoice == 1) {
       if (humanChoice < computerChoice) {
         humanScore = +1;} else {computerScore = +1;}
       }
-    else if (humanChoice == 1 && computerChoice == 2 ||        computerChoice == 2 && humanChoice == 1) {
+    else if (humanChoice == 1 && computerChoice == 2 || computerChoice == 2 && humanChoice == 1) {
       if (humanChoice > computerChoice) {
         humanScore = +1;} else {computerScore = +1;}
       }
 }
 
-getPlayerFirstTurn();
-whoWins();
-alert ("Human = "+ humanScore + "Computer = " + computerScore + ".");
+row();
