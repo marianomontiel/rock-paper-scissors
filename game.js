@@ -8,31 +8,47 @@ var computerChoice;
 var humanChoice;
 var humanScore = 0;
 var computerScore = 0;
+var computerChoiceString;
+var humanChoiceString;
 
 
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3) + 1;
-  console.log("Computer" + computerChoice);
+  if  (computerChoice === 1) {
+    computerChoiceString = "Rock";
+  } else if (computerChoice === 2) {
+    computerChoiceString = "Paper";
+  } else { computerChoiceString = "Scissors";}
+  console.log("Computer" + computerChoiceString);
 }
 
 function getHumanChoice() {
-  humanChoice = prompt();
-  if (humanChoice == "Rock") {
+  humanChoice = prompt("Choose your weapons! Rock, Paper or Scissors?");
+  humanChoice = humanChoice.toUpperCase();
+  if (humanChoice === "ROCK") {
     humanChoice = 1;
-  } else if (humanChoice == "Paper") {
-    humanChoice = 2
-  } else { humanChoice = 3 }
-  console.log("Human " + humanChoice);
+    humanChoiceString = "Rock";
+  } else if (humanChoice === "PAPER") {
+    humanChoice = 2;
+    humanChoiceString ="Paper";
+  } else if (humanChoice === "SCISSORS") {
+    humanChoice = 3;
+    humanChoiceString = "Scissors";
+  } else {
+    console.log("Ups you made a typo please try again.");
+    getHumanChoice();
+  }
+  console.log("Human chose:" + humanChoiceString);
 }
 
 function row() {
-    getComputerChoice();   
-    getHumanChoice();
-       
-    if (humanChoice === computerChoice) {
-      console.log("tie");
-      row();
-    } else {}
+  getComputerChoice();
+  getHumanChoice();
+
+  if (humanChoice === computerChoice) {
+    console.log("tie");
+    row();
+  } else { }
 }
 
 function play() {
