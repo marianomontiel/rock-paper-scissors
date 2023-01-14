@@ -13,7 +13,7 @@ var turn = Math.floor(Math.random() * 2) + 1;
 
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3) + 1;
-  console.log(computerChoice);
+  console.log("Computer" + computerChoice);
 }
 
 function getHumanChoice() {
@@ -23,20 +23,34 @@ function getHumanChoice() {
   } else if (humanChoice == "Paper") {
     humanChoice = 2
   } else { humanChoice = 3 }
-  console.log(humanChoice);
+  console.log("Human " + humanChoice);
+}
+
+function whoStarts () {
+  if (turn === 1) {
+    console.log("Human starts!");
+  } else {
+    console.log("Computer starts!");
+  }
 }
 
 function row() {
-    for (let i = 1; i <= 3; i++) {
-        if (turn === 1) {
-            getHumanChoice();
-            getComputerChoice();
-          } else {
-            getComputerChoice();
-            getHumanChoice();
-          }
-    }
+  if (turn === 1) {
+    getHumanChoice();
+    getComputerChoice();
+  } else {
+    getComputerChoice();
+    getHumanChoice();
+  }
+}
+
+function play() {
+  whoStarts();
+  for (let i = 0; i < 3; i++) {
+    row();
     whoWins();
+  }
+    
     alert ("Human = "+ humanScore + "Computer = " + computerScore + ".");
 }
 
@@ -44,21 +58,24 @@ function row() {
 /* Three possible scenarios:
 1) tie; 2) rock crushes scissors; 3) paper covers rock; 4) scissors cut paper */
 function whoWins () {
-    if (humanChoice == computerChoice) {
-      row ();
+    if (humanChoice === computerChoice) {
+      row();
     } 
-    else if (humanChoice == 3 && computerChoice == 2 || computerChoice == 3 && humanChoice == 2) {
+    else if (humanChoice === 3 && computerChoice === 2 || computerChoice === 3 && humanChoice === 2) {
       if (humanChoice > computerChoice) {
         humanScore = +1;} else {computerScore = +1;}
+        console.log("Human " + humanScore + "Computer " + computerScore)
       } 
-    else if (humanChoice == 1 && computerChoice == 3 || computerChoice == 3 && humanChoice == 1) {
+    else if (humanChoice === 1 && computerChoice === 3 || computerChoice === 3 && humanChoice === 1) {
       if (humanChoice < computerChoice) {
         humanScore = +1;} else {computerScore = +1;}
+        console.log("Human " + humanScore + "Computer " + computerScore)
       }
-    else if (humanChoice == 1 && computerChoice == 2 || computerChoice == 2 && humanChoice == 1) {
+    else if (humanChoice === 1 && computerChoice === 2 || computerChoice === 2 && humanChoice === 1) {
       if (humanChoice > computerChoice) {
         humanScore = +1;} else {computerScore = +1;}
+        console.log("Human " + humanScore + "Computer " + computerScore)
       }
 }
 
-row();
+play();
