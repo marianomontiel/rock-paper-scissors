@@ -26,8 +26,13 @@ function getHumanChoice() {
 }
 
 function row() {
+    getComputerChoice();   
     getHumanChoice();
-    getComputerChoice();
+       
+    if (humanChoice === computerChoice) {
+      console.log("tie");
+      row();
+    } else {}
 }
 
 function play() {
@@ -35,7 +40,6 @@ function play() {
     row();
     whoWins();
   }
-
   alert("Human = " + humanScore + "Computer = " + computerScore + ".");
 }
 
@@ -43,27 +47,22 @@ function play() {
 /* Three possible scenarios:
 1) tie; 2) rock crushes scissors; 3) paper covers rock; 4) scissors cut paper */
 function whoWins() {
-  if (humanChoice === computerChoice) {
-    row();
-  }
-  else if (humanChoice === 3 && computerChoice === 2 || computerChoice === 3 && humanChoice === 2) {
+  if (humanChoice === 3 && computerChoice === 2 || computerChoice === 3 && humanChoice === 2) {
     if (humanChoice > computerChoice) {
       humanScore += 1;
     } else { computerScore += 1; }
-    console.log("Human " + humanScore + "Computer " + computerScore)
   }
-  else if (humanChoice === 1 && computerChoice === 3 || computerChoice === 3 && humanChoice === 1) {
+  else if (humanChoice === 1 && computerChoice === 3 || computerChoice === 1 && humanChoice === 3) {
     if (humanChoice < computerChoice) {
       humanScore += 1;
     } else { computerScore += 1; }
-    console.log("Human " + humanScore + "Computer " + computerScore)
   }
-  else if (humanChoice === 1 && computerChoice === 2 || computerChoice === 2 && humanChoice === 1) {
+  else if (humanChoice === 2 && computerChoice === 1 || computerChoice === 2 && humanChoice === 1) {
     if (humanChoice > computerChoice) {
       humanScore += 1;
     } else { computerScore += 1; }
-    console.log("Human " + humanScore + "Computer " + computerScore)
   }
+  console.log("Human " + humanScore + "Computer " + computerScore);
 }
 
 play();
