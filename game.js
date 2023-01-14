@@ -8,7 +8,6 @@ var computerChoice;
 var humanChoice;
 var humanScore = 0;
 var computerScore = 0;
-var turn = Math.floor(Math.random() * 2) + 1;
 
 
 function getComputerChoice() {
@@ -26,56 +25,45 @@ function getHumanChoice() {
   console.log("Human " + humanChoice);
 }
 
-function whoStarts () {
-  if (turn === 1) {
-    console.log("Human starts!");
-  } else {
-    console.log("Computer starts!");
-  }
-}
-
 function row() {
-  if (turn === 1) {
     getHumanChoice();
     getComputerChoice();
-  } else {
-    getComputerChoice();
-    getHumanChoice();
-  }
 }
 
 function play() {
-  whoStarts();
   for (let i = 0; i < 3; i++) {
     row();
     whoWins();
   }
-    
-    alert ("Human = "+ humanScore + "Computer = " + computerScore + ".");
+
+  alert("Human = " + humanScore + "Computer = " + computerScore + ".");
 }
 
 
 /* Three possible scenarios:
 1) tie; 2) rock crushes scissors; 3) paper covers rock; 4) scissors cut paper */
-function whoWins () {
-    if (humanChoice === computerChoice) {
-      row();
-    } 
-    else if (humanChoice === 3 && computerChoice === 2 || computerChoice === 3 && humanChoice === 2) {
-      if (humanChoice > computerChoice) {
-        humanScore = +1;} else {computerScore = +1;}
-        console.log("Human " + humanScore + "Computer " + computerScore)
-      } 
-    else if (humanChoice === 1 && computerChoice === 3 || computerChoice === 3 && humanChoice === 1) {
-      if (humanChoice < computerChoice) {
-        humanScore = +1;} else {computerScore = +1;}
-        console.log("Human " + humanScore + "Computer " + computerScore)
-      }
-    else if (humanChoice === 1 && computerChoice === 2 || computerChoice === 2 && humanChoice === 1) {
-      if (humanChoice > computerChoice) {
-        humanScore = +1;} else {computerScore = +1;}
-        console.log("Human " + humanScore + "Computer " + computerScore)
-      }
+function whoWins() {
+  if (humanChoice === computerChoice) {
+    row();
+  }
+  else if (humanChoice === 3 && computerChoice === 2 || computerChoice === 3 && humanChoice === 2) {
+    if (humanChoice > computerChoice) {
+      humanScore += 1;
+    } else { computerScore += 1; }
+    console.log("Human " + humanScore + "Computer " + computerScore)
+  }
+  else if (humanChoice === 1 && computerChoice === 3 || computerChoice === 3 && humanChoice === 1) {
+    if (humanChoice < computerChoice) {
+      humanScore += 1;
+    } else { computerScore += 1; }
+    console.log("Human " + humanScore + "Computer " + computerScore)
+  }
+  else if (humanChoice === 1 && computerChoice === 2 || computerChoice === 2 && humanChoice === 1) {
+    if (humanChoice > computerChoice) {
+      humanScore += 1;
+    } else { computerScore += 1; }
+    console.log("Human " + humanScore + "Computer " + computerScore)
+  }
 }
 
 play();
