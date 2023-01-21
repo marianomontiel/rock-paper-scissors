@@ -81,4 +81,4 @@ function whoWins() {
   console.log("Human " + humanScore + "Computer " + computerScore);
 }
 
-play();
+// play();
