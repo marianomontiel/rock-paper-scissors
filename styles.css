@@ -10,7 +10,6 @@ body {
 .start {
     display: block;
     margin: 20px;
-    border: 3px solid red;
 }
 
 h1 {
@@ -22,8 +21,13 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin: 20px;
-    width: 200px;
+    width: 300px;
     border: 3px solid red;
+    padding: 5px;
+}
+
+.weapons > button {
+    width: 75px;
 }
 
 .players {
