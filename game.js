@@ -10,7 +10,7 @@ var humanScore = 0;
 var computerScore = 0;
 var computerChoiceString;
 var humanChoiceString;
-
+var rowCount = 0;
 
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -22,34 +22,27 @@ function getComputerChoice() {
   console.log("Computer" + computerChoiceString);
 }
 
-function getHumanChoice() {
-  humanChoice = prompt("Choose your weapons! Rock, Paper or Scissors?");
-  humanChoice = humanChoice.toUpperCase();
-  if (humanChoice === "ROCK") {
-    humanChoice = 1;
+function getHumanChoice(weapon) {
+  // humanChoice = prompt("Choose your weapons! Rock, Paper or Scissors?");
+  humanChoice = weapon;
+  if (humanChoice === 1) {
     humanChoiceString = "Rock";
-  } else if (humanChoice === "PAPER") {
-    humanChoice = 2;
+  } else if (humanChoice === 2) {
     humanChoiceString ="Paper";
-  } else if (humanChoice === "SCISSORS") {
-    humanChoice = 3;
+  } else if (humanChoice === 3) {
     humanChoiceString = "Scissors";
-  } else {
-    console.log("Ups you made a typo please try again.");
-    getHumanChoice();
   }
   console.log("Human chose:" + humanChoiceString);
 }
 
-function row() {
-  getComputerChoice();
-  getHumanChoice();
-
-  if (humanChoice === computerChoice) {
-    console.log("tie");
-    row();
-  } else { }
-}
+// function row() {
+//   getComputerChoice();
+//   getHumanChoice();
+//   if (humanChoice === computerChoice) {
+//     console.log("tie");
+//     row();
+//   } else { }
+// }
 
 function play() {
   for (let i = 0; i < 3; i++) {
@@ -81,4 +74,32 @@ function whoWins() {
   console.log("Human " + humanScore + "Computer " + computerScore);
 }
 
-// play();
+// Here start the DOM scripts
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click',  () => row(1));
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click',  () => row(2));
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click',  () => row(3));
+
+function row(weapon) {
+  getComputerChoice();
+  getHumanChoice(weapon);
+  //If there is a tie nothing should happen
+  if (humanChoice === computerChoice) {
+    console.log ('tie');
+    return;
+  } else {
+  whoWins();
+  rowCount += 1;
+  if (rowCount < 3) {
+    console.log ('Who won?')
+  } else { console.log('end'); }
+  }
+}
+
+//when a weapon is chosen run a row until 3 rows have passed or until somebody wins
+
