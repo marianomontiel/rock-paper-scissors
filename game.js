@@ -35,24 +35,6 @@ function getHumanChoice(weapon) {
   console.log("Human chose:" + humanChoiceString);
 }
 
-// function row() {
-//   getComputerChoice();
-//   getHumanChoice();
-//   if (humanChoice === computerChoice) {
-//     console.log("tie");
-//     row();
-//   } else { }
-// }
-
-function play() {
-  for (let i = 0; i < 3; i++) {
-    row();
-    whoWins();
-  }
-  alert("Human = " + humanScore + "Computer = " + computerScore + ".");
-}
-
-
 /* Three possible scenarios:
 1) tie; 2) rock crushes scissors; 3) paper covers rock; 4) scissors cut paper */
 function whoWins() {
@@ -96,8 +78,15 @@ function row(weapon) {
   whoWins();
   rowCount += 1;
   if (rowCount < 3) {
-    console.log ('Who won?')
-  } else { console.log('end'); }
+    console.log ('Who won?')         
+  } else {
+    const body = document.querySelector('body');
+    console.dir(body.lastElementChild);
+    const div = document.createElement('div');
+    div.textContent = 'end';
+
+    body.appendChild (div);   
+   }
   }
 }
 
