@@ -67,7 +67,11 @@ paper.addEventListener('click',  () => row(2));
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click',  () => row(3));
 
+const start = document.querySelector('.start');
+start.addEventListener('click',  () => resetGame());
+
 function row(weapon) {
+  if (rowCount === 3) {return;}
   getComputerChoice();
   getHumanChoice(weapon);
   //If there is a tie nothing should happen
@@ -77,17 +81,32 @@ function row(weapon) {
   } else {
   whoWins();
   rowCount += 1;
-  if (rowCount < 3) {
-    console.log ('Who won?')         
+  if (rowCount < 3) {      
+  } else if (humanScore > computerScore){
+    const body = document.querySelector('body');
+    console.dir(body.lastElementChild);
+    const div = document.createElement('div');
+    div.setAttribute('id', 'theDiv'); 
+    div.textContent = 'You win!';
+    body.appendChild (div);
   } else {
     const body = document.querySelector('body');
     console.dir(body.lastElementChild);
     const div = document.createElement('div');
-    div.textContent = 'end';
-
-    body.appendChild (div);   
-   }
+    div.setAttribute('id', 'theDiv'); 
+    div.textContent = 'You loose!';
+    body.appendChild (div);
+    }
   }
+}
+
+function resetGame () {
+  rowCount = 0;
+  computerScore = 0;
+  humanScore = 0;
+  const body = document.querySelector('body');
+  const theDiv = document.querySelector('#theDiv');
+  body.removeChild (theDiv);
 }
 
 //when a weapon is chosen run a row until 3 rows have passed or until somebody wins
