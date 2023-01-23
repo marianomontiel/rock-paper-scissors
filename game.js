@@ -33,7 +33,7 @@ function getComputerChoice() {
 const players = document.querySelector('.players');
 const human = document.querySelector('.human');
 const humanWeapon = document.createElement('img');
-humanWeapon.setAttribute('style', 'height: 300px');
+humanWeapon.setAttribute('style', 'height: 300px; border: 5px solid red;');
 const computer = document.querySelector('.computer');
 const computerWeapon = document.createElement('img');
 computerWeapon.setAttribute('style', 'height: 300px');
