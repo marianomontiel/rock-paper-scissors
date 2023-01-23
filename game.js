@@ -27,7 +27,7 @@ function getComputerChoice() {
       break;
     case 3:
       computerChoiceString = "Scissors";
-      computerWeapon.src = '/images/scissors.jpg';
+      computerWeapon.src = './images/scissors.jpg';
       computer.appendChild(computerWeapon);
       break;
   }
