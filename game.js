@@ -20,9 +20,16 @@ function getComputerChoice() {
     computer.appendChild(computerWeapon);
   } else if (computerChoice === 2) {
     computerChoiceString = "Paper";
-  } else { computerChoiceString = "Scissors"; }
+    humanWeapon.src = 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Toilet-Paper-Day-640x514.jpg';
+    human.appendChild(humanWeapon);
+  } else { computerChoiceString = "Scissors";
+    humanChoiceString = "Scissors";
+    humanWeapon.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c400c049-dc69-4144-970e-0f94b3c1d10b/d5xfe9a-a5f39a64-3e02-4b20-a092-a3c8500fc65c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MDBjMDQ5LWRjNjktNDE0NC05NzBlLTBmOTRiM2MxZDEwYlwvZDV4ZmU5YS1hNWYzOWE2NC0zZTAyLTRiMjAtYTA5Mi1hM2M4NTAwZmM2NWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mXlQaXe1JLxXMBUczD0csxRsFEUzCapSCG-NTXqYszA';
+    human.appendChild(humanWeapon);
+ }
   console.log("Computer" + computerChoiceString);
 }
+
 const players = document.querySelector('.players');
 const human = document.querySelector('.human');
 const humanWeapon = document.createElement('img');
@@ -30,7 +37,6 @@ humanWeapon.setAttribute('style', 'height: 300px');
 const computer = document.querySelector('.computer');
 const computerWeapon = document.createElement('img');
 computerWeapon.setAttribute('style', 'height: 300px');
-
 
 function getHumanChoice(weapon) {
   // humanChoice = prompt("Choose your weapons! Rock, Paper or Scissors?");
@@ -41,8 +47,13 @@ function getHumanChoice(weapon) {
     human.appendChild(humanWeapon);
   } else if (humanChoice === 2) {
     humanChoiceString = "Paper";
+    humanWeapon.src = 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Toilet-Paper-Day-640x514.jpg';
+    human.appendChild(humanWeapon);
+    
   } else if (humanChoice === 3) {
     humanChoiceString = "Scissors";
+    humanWeapon.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c400c049-dc69-4144-970e-0f94b3c1d10b/d5xfe9a-a5f39a64-3e02-4b20-a092-a3c8500fc65c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MDBjMDQ5LWRjNjktNDE0NC05NzBlLTBmOTRiM2MxZDEwYlwvZDV4ZmU5YS1hNWYzOWE2NC0zZTAyLTRiMjAtYTA5Mi1hM2M4NTAwZmM2NWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mXlQaXe1JLxXMBUczD0csxRsFEUzCapSCG-NTXqYszA';
+    human.appendChild(humanWeapon);
   }
   console.log("Human chose:" + humanChoiceString);
 }
