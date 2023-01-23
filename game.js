@@ -14,46 +14,53 @@ var rowCount = 0;
 
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3) + 1;
-  if (computerChoice === 1) {
-    computerChoiceString = "Rock";
-    computerWeapon.src = 'https://b.fssta.com/uploads/application/wwe/headshots/dwayne-the-rock-johnson.png';
-    computer.appendChild(computerWeapon);
-  } else if (computerChoice === 2) {
-    computerChoiceString = "Paper";
-    computerWeapon.src = 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Toilet-Paper-Day-640x514.jpg';
-    computer.appendChild(computerWeapon);
-  } else { computerChoiceString = "Scissors";
-    computerChoiceString = "Scissors";
-    computerWeapon.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c400c049-dc69-4144-970e-0f94b3c1d10b/d5xfe9a-a5f39a64-3e02-4b20-a092-a3c8500fc65c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MDBjMDQ5LWRjNjktNDE0NC05NzBlLTBmOTRiM2MxZDEwYlwvZDV4ZmU5YS1hNWYzOWE2NC0zZTAyLTRiMjAtYTA5Mi1hM2M4NTAwZmM2NWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mXlQaXe1JLxXMBUczD0csxRsFEUzCapSCG-NTXqYszA';
-    computer.appendChild(computerWeapon);
- }
+  switch (computerChoice) {
+    case 1:
+      computerChoiceString = "Rock";
+      computerWeapon.src = './images/rock.jpg';
+      computer.appendChild(computerWeapon);
+      break;
+    case 2:
+      computerChoiceString = "Paper";
+      computerWeapon.src = './images/paper.jpg';
+      computer.appendChild(computerWeapon);
+      break;
+    case 3:
+      computerChoiceString = "Scissors";
+      computerWeapon.src = '/images/scissors.jpg';
+      computer.appendChild(computerWeapon);
+      break;
+  }
   console.log("Computer" + computerChoiceString);
 }
 
 const players = document.querySelector('.players');
 const human = document.querySelector('.human');
 const humanWeapon = document.createElement('img');
-humanWeapon.setAttribute('style', 'height: 300px; border: 5px solid red;');
+humanWeapon.setAttribute('style', 'height: 300px; width: 300px; object-fit: contain; border: 1px solid red');
 const computer = document.querySelector('.computer');
 const computerWeapon = document.createElement('img');
-computerWeapon.setAttribute('style', 'height: 300px');
+computerWeapon.setAttribute('style', 'height: 300px; width: 300px; object-fit: contain');
 
 function getHumanChoice(weapon) {
   // humanChoice = prompt("Choose your weapons! Rock, Paper or Scissors?");
   humanChoice = weapon;
-  if (humanChoice === 1) {
-    humanChoiceString = "Rock";
-    humanWeapon.src = 'https://b.fssta.com/uploads/application/wwe/headshots/dwayne-the-rock-johnson.png';
-    human.appendChild(humanWeapon);
-  } else if (humanChoice === 2) {
-    humanChoiceString = "Paper";
-    humanWeapon.src = 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Toilet-Paper-Day-640x514.jpg';
-    human.appendChild(humanWeapon);
-    
-  } else if (humanChoice === 3) {
-    humanChoiceString = "Scissors";
-    humanWeapon.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c400c049-dc69-4144-970e-0f94b3c1d10b/d5xfe9a-a5f39a64-3e02-4b20-a092-a3c8500fc65c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MDBjMDQ5LWRjNjktNDE0NC05NzBlLTBmOTRiM2MxZDEwYlwvZDV4ZmU5YS1hNWYzOWE2NC0zZTAyLTRiMjAtYTA5Mi1hM2M4NTAwZmM2NWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mXlQaXe1JLxXMBUczD0csxRsFEUzCapSCG-NTXqYszA';
-    human.appendChild(humanWeapon);
+  switch (humanChoice) {
+    case 1:
+      humanChoiceString = "Rock";
+      humanWeapon.src = './images/rock.jpg';
+      human.appendChild(humanWeapon);
+      break;
+    case 2:
+      humanChoiceString = "Paper";
+      humanWeapon.src = './images/paper.jpg';
+      human.appendChild(humanWeapon);
+      break;
+    case 3:
+      humanChoiceString = "Scissors";
+      humanWeapon.src = './images/scissors.jpg';
+      human.appendChild(humanWeapon);
+      break;
   }
   console.log("Human chose:" + humanChoiceString);
 }
@@ -98,7 +105,7 @@ const body = document.querySelector('body');
 console.dir(body.lastElementChild);
 const div = document.createElement('div');
 div.setAttribute('id', 'theDiv');
-div.setAttribute('style', 'padding: 30px'); 
+div.setAttribute('style', 'padding: 30px');
 const weapons = document.querySelector('.weapons');
 
 function row(weapon) {
