@@ -20,12 +20,12 @@ function getComputerChoice() {
     computer.appendChild(computerWeapon);
   } else if (computerChoice === 2) {
     computerChoiceString = "Paper";
-    humanWeapon.src = 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Toilet-Paper-Day-640x514.jpg';
-    human.appendChild(humanWeapon);
+    computerWeapon.src = 'https://nationaltoday.com/wp-content/uploads/2021/08/National-Toilet-Paper-Day-640x514.jpg';
+    computer.appendChild(computerWeapon);
   } else { computerChoiceString = "Scissors";
-    humanChoiceString = "Scissors";
-    humanWeapon.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c400c049-dc69-4144-970e-0f94b3c1d10b/d5xfe9a-a5f39a64-3e02-4b20-a092-a3c8500fc65c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MDBjMDQ5LWRjNjktNDE0NC05NzBlLTBmOTRiM2MxZDEwYlwvZDV4ZmU5YS1hNWYzOWE2NC0zZTAyLTRiMjAtYTA5Mi1hM2M4NTAwZmM2NWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mXlQaXe1JLxXMBUczD0csxRsFEUzCapSCG-NTXqYszA';
-    human.appendChild(humanWeapon);
+    computerChoiceString = "Scissors";
+    computerWeapon.src = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c400c049-dc69-4144-970e-0f94b3c1d10b/d5xfe9a-a5f39a64-3e02-4b20-a092-a3c8500fc65c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0MDBjMDQ5LWRjNjktNDE0NC05NzBlLTBmOTRiM2MxZDEwYlwvZDV4ZmU5YS1hNWYzOWE2NC0zZTAyLTRiMjAtYTA5Mi1hM2M4NTAwZmM2NWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.mXlQaXe1JLxXMBUczD0csxRsFEUzCapSCG-NTXqYszA';
+    computer.appendChild(computerWeapon);
  }
   console.log("Computer" + computerChoiceString);
 }

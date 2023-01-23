@@ -35,13 +35,14 @@ h1 {
     flex-direction: row;
     justify-content: center;
     border: 3px solid red;
-    max-width: 1000px;
+    min-width: 600px;
+    min-height: 300px;
 }
 
-.player {
+/* .human, .computer {
     padding: 50px;
     border: 3px solid red;
     margin: 10px;
     height: 50px;
     width: 50px;
-}
+} */
